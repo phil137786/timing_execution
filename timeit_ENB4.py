@@ -29,7 +29,7 @@ def predict():
         output_neuron = np.argmax(predictions[i])
 
 if __name__ == '__main__':
-    Ausgabe=timeit.repeat("predict()", setup="from __main__ import predict", repeat=5, number =1)
+    Ausgabe=timeit.repeat("predict()", setup="from __main__ import predict", repeat=5, number =10)
     print (Ausgabe)
     average = sum(Ausgabe)/len(Ausgabe)
     print(file.write(str(Ausgabe)+" " + str(average) + "\n"))
