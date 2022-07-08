@@ -1,8 +1,9 @@
 import numpy as np
-from keras.applications.mobilenet_v2 import MobileNetV2
-from keras.applications.mobilenet_v2 import preprocess_input
-from keras.applications.mobilenet_v2 import decode_predictions
+from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2
+from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+from tensorflow.keras.applications.mobilenet_v2 import decode_predictions
 from tensorflow.keras.preprocessing.image import load_img
+#import matplotlib.image as mpimg
 
 # Es wird das MobileNetV2 Modell mit Standartgewichtung verwendet
 model = MobileNetV2(weights='imagenet')
@@ -15,6 +16,7 @@ data = np.empty((num_pic, 224, 224, 3))
 
 for i in range(num_pic):
     data[i] = load_img('prepared_img224x224/' + str(i) + '.jpg')
+    #data[i] = mpimg.imread('prepared_img224x224/' + str(i) + '.jpg')
 data = preprocess_input(data) 
 
 
